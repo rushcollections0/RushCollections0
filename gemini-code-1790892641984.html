@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUSH COLLECTIONS0 | Wear The Rush</title>
+    <style>
+        :root {
+            --bg-color: #f7faf7;
+            --card-bg: #ffffff;
+            --accent-green: #d4ebd4;
+            --text-dark: #1a1a1a;
+            --text-muted: #555555;
+            --brand-border: #e0e0e0;
+            --whatsapp-green: #25D366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Branding */
+        header {
+            background-color: var(--card-bg);
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem;
+            border-bottom: 1px solid var(--brand-border);
+        }
+
+        .brand-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .slogan {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Navigation / Info Bar */
+        .info-bar {
+            background-color: var(--accent-green);
+            text-align: center;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--brand-border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .product-details {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .btn-order {
+            margin-top: auto;
+            background-color: var(--whatsapp-green);
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-order:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--brand-border);
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .brand-title {
+                font-size: 1.6rem;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-title">RUSH COLLECTIONS0</div>
+        <div class="slogan">Wear the Rush.</div>
+    </header>
+
+    <div class="info-bar">
+        ⚡ Unique Thrift Drops & Curated Fits | Fast Delivery Across Campus & Countrywide
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Latest Drop</h2>
+
+        <div class="product-grid">
+
+            <!-- Item 1 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x500" alt="Vintage Oversized Hoodie" class="product-img">
+                <div class="product-details">
+                    <div class="product-name">Vintage Oversized Hoodie</div>
+                    <div class="product-meta">Size: L | Condition: 9/10</div>
+                    <div class="product-price">KES 1,200</div>
+                    <a href="https://wa.me/254114413756?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20buying%20the%20Vintage%20Oversized%20Hoodie" target="_blank" class="btn-order">
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x500" alt="Graphic Streetwear Tee" class="product-img">
+                <div class="product-details">
+                    <div class="product-name">Graphic Streetwear Tee</div>
+                    <div class="product-meta">Size: M | Condition: 10/10 (New)</div>
+                    <div class="product-price">KES 800</div>
+                    <a href="https://wa.me/254114413756?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20buying%20the%20Graphic%20Streetwear%20Tee" target="_blank" class="btn-order">
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x500" alt="Classic Denim Jacket" class="product-img">
+                <div class="product-details">
+                    <div class="product-name">Classic Denim Jacket</div>
+                    <div class="product-meta">Size: XL | Condition: 8.5/10</div>
+                    <div class="product-price">KES 1,500</div>
+                    <a href="https://wa.me/254114413756?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20buying%20the%20Classic%20Denim%20Jacket" target="_blank" class="btn-order">
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/400x500" alt="Cargo Cargo Pants" class="product-img">
+                <div class="product-details">
+                    <div class="product-name">Tactical Cargo Pants</div>
+                    <div class="product-meta">Size: 32 | Condition: 9/10</div>
+                    <div class="product-price">KES 1,100</div>
+                    <a href="https://wa.me/254114413756?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20buying%20the%20Tactical%20Cargo%20Pants" target="_blank" class="btn-order">
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 RUSH COLLECTIONS0. All rights reserved.</p>
+        <p>Follow us on TikTok / Instagram for drop alerts.</p>
+    </footer>
+
+</body>
+</html>
