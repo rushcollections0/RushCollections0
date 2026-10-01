@@ -7,249 +7,311 @@
     <title>RUSH COLLECTIONS0 | Wear The Rush</title>
     <style>
         :root {
-            --bg-color: #f7faf7;
-            --card-bg: #ffffff;
-            --accent-green: #d4ebd4;
-            --text-dark: #1a1a1a;
-            --text-muted: #555555;
-            --brand-border: #e0e0e0;
-            --whatsapp-green: #25D366;
-            --instagram-pink: #E1306C;
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --card-border: #1f2937;
+            --accent-glow: #22c55e;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --whatsapp-color: #25D366;
+            --instagram-color: #e1306c;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-dark);
+            color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
         }
 
+        /* Hero Section */
         header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--brand-border);
+            background: linear-gradient(180deg, #111827 0%, #0b0f19 100%);
+            border-bottom: 1px solid var(--card-border);
             text-align: center;
-            padding: 45px 20px;
-            margin-bottom: 30px;
+            padding: 60px 20px 40px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(34, 197, 94, 0.1);
+            color: var(--accent-glow);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 15px;
         }
 
         header h1 {
-            font-size: 2.4rem;
-            letter-spacing: 2px;
-            font-weight: 800;
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, #9ca3af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header p {
             color: var(--text-muted);
-            font-style: italic;
-            font-size: 1.05rem;
-            margin-top: 5px;
+            font-size: 1.1rem;
+            margin-top: 8px;
+            letter-spacing: 1px;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 850px;
+            margin: -20px auto 0;
             padding: 0 20px;
         }
 
+        /* Card Component */
         .card {
             background-color: var(--card-bg);
-            border: 1px solid var(--brand-border);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            transition: border-color 0.3s ease;
         }
 
-        .card h2 {
-            font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .card:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             margin-bottom: 20px;
-            color: var(--text-dark);
-            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .section-icon {
+            width: 8px;
+            height: 20px;
+            background-color: var(--accent-glow);
+            border-radius: 4px;
         }
 
         .bio-text {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--text-muted);
-            line-height: 1.7;
-            text-align: center;
+            line-height: 1.8;
         }
 
-        /* How It Works Steps */
-        .steps-grid {
+        /* Grid for Process */
+        .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
         }
 
-        .step-item {
-            text-align: center;
-            padding: 15px;
-            background-color: #fafafa;
-            border-radius: 8px;
-            border: 1px solid var(--brand-border);
+        .process-box {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
         }
 
-        .step-num {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 5px;
+        .process-num {
+            font-size: 2rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.08);
+            position: absolute;
+            top: 10px;
+            right: 15px;
         }
 
-        .step-title {
-            font-weight: 700;
+        .process-title {
             font-size: 0.95rem;
-            margin-bottom: 5px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
         }
 
-        .step-desc {
+        .process-desc {
             font-size: 0.85rem;
             color: var(--text-muted);
         }
 
-        /* FAQ Accordion List */
-        .faq-item {
-            border-bottom: 1px solid var(--brand-border);
-            padding: 15px 0;
+        /* FAQ List */
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        .faq-item:last-child {
-            border-bottom: none;
+        .faq-item {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 18px 20px;
         }
 
         .faq-question {
             font-weight: 700;
-            font-size: 0.98rem;
-            margin-bottom: 5px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
         }
 
         .faq-answer {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
         }
 
-        /* Social Buttons */
-        .social-links {
+        /* Action Buttons */
+        .btn-stack {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 10px;
+            gap: 14px;
         }
 
-        .btn-social {
-            background-color: var(--card-bg);
-            border: 2px solid var(--brand-border);
-            color: var(--text-dark);
-            text-decoration: none;
-            padding: 14px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
+        .btn-action {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
+            padding: 16px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
             transition: all 0.2s ease;
         }
 
-        .btn-social:hover {
-            border-color: var(--text-dark);
+        .btn-wa {
+            background-color: var(--whatsapp-color);
+            color: #ffffff;
+        }
+
+        .btn-wa:hover {
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
             transform: translateY(-2px);
         }
 
-        .btn-whatsapp {
-            background-color: var(--whatsapp-green);
-            color: white;
-            border: none;
+        .btn-ig {
+            background-color: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
         }
 
-        .btn-whatsapp:hover {
-            opacity: 0.9;
-            border: none;
+        .btn-ig:hover {
+            border-color: var(--instagram-color);
+            color: var(--instagram-color);
+            transform: translateY(-2px);
         }
 
         footer {
             text-align: center;
             margin-top: 40px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
     <header>
+        <span class="badge">Official Digital Hub</span>
         <h1>RUSH COLLECTIONS0</h1>
-        <p>Wear the Rush</p>
+        <p>WEAR THE RUSH</p>
     </header>
 
     <div class="container">
         
-        <!-- About Us Card -->
+        <!-- Brand Concept -->
         <div class="card">
-            <h2>About Us</h2>
+            <div class="section-header">
+                <div class="section-icon"></div>
+                <h2>The Brand Statement</h2>
+            </div>
             <p class="bio-text">
-                At RUSH COLLECTIONS0, we keep it fresh and unique. We specialize in handpicked thrift fashion and streetwear drops. Premium style, curated just for you.
+                RUSH COLLECTIONS0 is an independent online thrift project built around curated vintage apparel and rare streetwear finds. We source unique, high-quality garments and deliver them straight to you with maximum convenience. No physical shopfront required—just authentic fits and fast communication.
             </p>
         </div>
 
-        <!-- How It Works Card -->
+        <!-- How To Order -->
         <div class="card">
-            <h2>How To Shop</h2>
-            <div class="steps-grid">
-                <div class="step-item">
-                    <div class="step-num">1</div>
-                    <div class="step-title">Browse Drops</div>
-                    <div class="step-desc">Check out our latest arrivals and curated looks online.</div>
+            <div class="section-header">
+                <div class="section-icon"></div>
+                <h2>How It Works</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-box">
+                    <span class="process-num">01</span>
+                    <div class="process-title">Discover Drops</div>
+                    <div class="process-desc">Watch our social feeds for current drop catalogs and piece releases.</div>
                 </div>
-                <div class="step-item">
-                    <div class="step-num">2</div>
-                    <div class="step-title">Reach Out</div>
-                    <div class="step-desc">DM us on Instagram or WhatsApp to claim your favorite pieces.</div>
+                <div class="process-box">
+                    <span class="process-num">02</span>
+                    <div class="process-title">Lock In Your Fit</div>
+                    <div class="process-desc">Send us a screenshot of your preferred piece via WhatsApp or DM.</div>
                 </div>
-                <div class="step-item">
-                    <div class="step-num">3</div>
-                    <div class="step-title">Get It Delivered</div>
-                    <div class="step-desc">Coordinate drop-offs or flexible delivery options with us directly.</div>
+                <div class="process-box">
+                    <span class="process-num">03</span>
+                    <div class="process-title">Direct Dispatch</div>
+                    <div class="process-desc">Arrangements are made instantly for delivery or drop-off location.</div>
                 </div>
             </div>
         </div>
 
-        <!-- FAQ Section -->
+        <!-- Quick FAQ -->
         <div class="card">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <div class="faq-question">How do I place an order?</div>
-                <div class="faq-answer">Simply hit us up on WhatsApp or Instagram with a screenshot of the piece you want to lock it down.</div>
+            <div class="section-header">
+                <div class="section-icon"></div>
+                <h2>Store FAQ</h2>
             </div>
-            <div class="faq-item">
-                <div class="faq-question">What payment methods do you accept?</div>
-                <div class="faq-answer">We work with flexible arrangements including cash on delivery options.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Are these unique pieces?</div>
-                <div class="faq-answer">Yes! Every drop features hand-selected thrift streetwear and vintage items, meaning once a piece is gone, it's gone.</div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Are items restocked?</div>
+                    <div class="faq-answer">No. Every thrift item is one-of-a-kind. Once a piece sells, it's out of stock permanently.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How are orders placed?</div>
+                    <div class="faq-answer">Directly through our WhatsApp or Instagram channels below.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What about payments?</div>
+                    <div class="faq-answer">We offer flexible payment options, including cash-on-delivery arrangements.</div>
+                </div>
             </div>
         </div>
 
-        <!-- Social Links Hub -->
+        <!-- Connect Hub -->
         <div class="card">
-            <h2>Connect With Us</h2>
-            <div class="social-links">
-                <a href="https://wa.me/254116239991" class="btn-social btn-whatsapp" target="_blank">
-                    Chat on WhatsApp
+            <div class="section-header">
+                <div class="section-icon"></div>
+                <h2>Connect With Us</h2>
+            </div>
+            <div class="btn-stack">
+                <a href="https://wa.me/254116239991" class="btn-action btn-wa" target="_blank">
+                    Message on WhatsApp
                 </a>
-                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-social" target="_blank">
-                    Instagram (@rush_collections0)
+                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-action btn-ig" target="_blank">
+                    Follow on Instagram (@rush_collections0)
                 </a>
             </div>
         </div>
@@ -257,7 +319,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 RUSH COLLECTIONS0. All Rights Reserved.</p>
+        <p>&copy; 2026 RUSH COLLECTIONS0. WEAR THE RUSH.</p>
     </footer>
 
 </body>
