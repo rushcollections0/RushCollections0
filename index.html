@@ -94,7 +94,7 @@
             color: var(--text-muted);
         }
 
-        /* Hero Slider with Background Images */
+        /* Hero Slider */
         .hero-slider {
             position: relative;
             height: 80vh;
@@ -128,11 +128,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1;
         }
 
-        /* Slider Background Images */
         .slide-1 {
             background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1600&q=80');
         }
@@ -203,7 +202,7 @@
             transform: translateY(-2px);
         }
 
-        /* Slider Controls */
+        /* Controls */
         .slider-arrow {
             position: absolute;
             top: 50%;
@@ -249,7 +248,7 @@
             transform: scale(1.3);
         }
 
-        /* Intro / Brand Section */
+        /* Section */
         .intro-section {
             padding: 90px 20px;
             max-width: 800px;
@@ -309,11 +308,9 @@
             transition: opacity 0.2s;
         }
 
-        .btn-dark:hover {
-            opacity: 0.85;
-        }
+        .btn-dark:hover { opacity: 0.85; }
 
-        /* Social Hub / Contact Strip */
+        /* Social */
         .social-strip {
             background-color: #f9fafb;
             border-top: 1px solid var(--border-color);
@@ -348,11 +345,6 @@
             border: 1px solid var(--border-color);
             background: #ffffff;
             color: var(--text-dark);
-            transition: all 0.2s;
-        }
-
-        .btn-social:hover {
-            border-color: #111;
         }
 
         .btn-whatsapp-official {
@@ -361,11 +353,6 @@
             border: none;
         }
 
-        .btn-whatsapp-official:hover {
-            opacity: 0.9;
-        }
-
-        /* Footer */
         footer {
             padding: 40px 20px;
             text-align: center;
@@ -376,25 +363,17 @@
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 16px 20px;
-            }
-            .nav-links {
-                display: none;
-            }
-            .slider-arrow {
-                padding: 8px 14px;
-                font-size: 1.4rem;
-            }
+            nav { padding: 16px 20px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- Nav -->
     <nav>
         <a href="#" class="brand-container">
-            <img src="./logo.png" alt="RUSH COLLECTIONS0 Logo" class="brand-logo-img">
+            <img src="logo.png" alt="RUSH COLLECTIONS0 Logo" class="brand-logo-img">
             <div class="brand-text">
                 <span class="logo-title">RUSH COLLECTIONS0</span>
                 <span class="logo-slogan">Wear the Rush.</span>
@@ -406,53 +385,47 @@
         </div>
     </nav>
 
-    <!-- Hero Slider -->
+    <!-- Slider -->
     <section class="hero-slider">
-        <!-- Slide 1 -->
         <div class="slide slide-1 active">
             <div class="hero-content">
-                <img src="./logo.png" alt="Logo" class="hero-logo-img">
+                <img src="logo.png" alt="Logo" class="hero-logo-img">
                 <h1>UNISEX VINTAGE & STREETWEAR</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
                 <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">View Latest Drops</a>
             </div>
         </div>
 
-        <!-- Slide 2 -->
         <div class="slide slide-2">
             <div class="hero-content">
-                <img src="./logo.png" alt="Logo" class="hero-logo-img">
+                <img src="logo.png" alt="Logo" class="hero-logo-img">
                 <h1>RAW THRIFT & OVERSIZED FITS</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
                 <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Shop The Vibe</a>
             </div>
         </div>
 
-        <!-- Slide 3 -->
         <div class="slide slide-3">
             <div class="hero-content">
-                <img src="./logo.png" alt="Logo" class="hero-logo-img">
+                <img src="logo.png" alt="Logo" class="hero-logo-img">
                 <h1>RETRO GRAPHIC TEES & HOODIES</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
                 <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Explore Catalog</a>
             </div>
         </div>
 
-        <!-- Slide 4 -->
         <div class="slide slide-4">
             <div class="hero-content">
-                <img src="./logo.png" alt="Logo" class="hero-logo-img">
+                <img src="logo.png" alt="Logo" class="hero-logo-img">
                 <h1>EXCLUSIVE 1-OF-1 DROPS</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
                 <a href="https://wa.me/254116239991" class="btn-primary" target="_blank">Claim Your Piece</a>
             </div>
         </div>
 
-        <!-- Arrows -->
         <button class="slider-arrow prev-slide">&#10094;</button>
         <button class="slider-arrow next-slide">&#10095;</button>
 
-        <!-- Dots -->
         <div class="slider-dots">
             <span class="dot active" data-index="0"></span>
             <span class="dot" data-index="1"></span>
@@ -461,37 +434,31 @@
         </div>
     </section>
 
-    <!-- Intro Section -->
+    <!-- Intro -->
     <section class="intro-section">
-        <img src="./logo.png" alt="RUSH COLLECTIONS0 Official Logo" class="brand-card-logo">
+        <img src="logo.png" alt="RUSH COLLECTIONS0 Official Logo" class="brand-card-logo">
         <div class="section-tag">WHO WE ARE</div>
         <h2>RUSH COLLECTIONS0</h2>
         <div class="slogan-highlight">"Wear the Rush."</div>
         <p>
-            We curate timeless thrift, vintage graphic tees, oversized fits, and authentic streetwear designed for everyone. No matter your age, style, or vibe—our handpicked drops bring raw street aesthetic straight to your collection.
+            We curate timeless thrift, vintage graphic tees, oversized fits, and authentic streetwear designed for everyone. Handpicked drops bringing raw street aesthetic straight to your collection.
         </p>
         <a href="https://wa.me/254116239991" class="btn-dark" target="_blank">Connect on WhatsApp</a>
     </section>
 
-    <!-- Social Hub Section -->
+    <!-- Social Hub -->
     <section class="social-strip">
         <h3>Join The Community</h3>
         <div class="social-buttons">
-            <a href="https://wa.me/254116239991" class="btn-social btn-whatsapp-official" target="_blank">
-                WhatsApp Us
-            </a>
-            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-social" target="_blank">
-                Instagram (@rush_collections0)
-            </a>
+            <a href="https://wa.me/254116239991" class="btn-social btn-whatsapp-official" target="_blank">WhatsApp Us</a>
+            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-social" target="_blank">Instagram (@rush_collections0)</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 RUSH COLLECTIONS0 &bull; Wear the Rush.</p>
     </footer>
 
-    <!-- Slider JavaScript -->
     <script>
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
@@ -505,7 +472,6 @@
                 slide.classList.remove('active');
                 dots[i].classList.remove('active');
             });
-            
             if (index >= slides.length) currentSlide = 0;
             else if (index < 0) currentSlide = slides.length - 1;
             else currentSlide = index;
@@ -514,38 +480,17 @@
             dots[currentSlide].classList.add('active');
         }
 
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
 
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
+        function startAutoSlide() { slideInterval = setInterval(nextSlide, 4500); }
+        function resetAutoSlide() { clearInterval(slideInterval); startAutoSlide(); }
 
-        function startAutoSlide() {
-            slideInterval = setInterval(nextSlide, 4500);
-        }
-
-        function resetAutoSlide() {
-            clearInterval(slideInterval);
-            startAutoSlide();
-        }
-
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetAutoSlide();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetAutoSlide();
-        });
+        nextBtn.addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
+        prevBtn.addEventListener('click', () => { prevSlide(); resetAutoSlide(); });
 
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-                resetAutoSlide();
-            });
+            dot.addEventListener('click', () => { showSlide(index); resetAutoSlide(); });
         });
 
         startAutoSlide();
