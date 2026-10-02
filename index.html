@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +31,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 40px;
+            padding: 16px 40px;
             border-bottom: 1px solid var(--border-color);
             background: #ffffff;
             position: sticky;
@@ -40,13 +39,40 @@
             z-index: 100;
         }
 
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 800;
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .brand-logo-img {
+            height: 48px;
+            width: auto;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.2rem;
+            font-weight: 900;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text-dark);
-            text-decoration: none;
+            line-height: 1.1;
+        }
+
+        .logo-slogan {
+            font-size: 0.75rem;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 1px;
         }
 
         .nav-links {
@@ -58,8 +84,8 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.2s;
@@ -69,12 +95,25 @@
             color: var(--text-muted);
         }
 
-        /* Hero Banner Section with Unisex Streetwear / Vintage Background */
-        .hero {
+        /* Hero Slider Section */
+        .hero-slider {
             position: relative;
-            height: 80vh;
-            min-height: 500px;
-            background: #111 url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1600&auto=format&fit=crop') no-repeat center center/cover;
+            height: 85vh;
+            min-height: 550px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -82,11 +121,31 @@
             padding: 0 20px;
         }
 
-        .hero::after {
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Slide Background Images */
+        .slide-1 {
+            background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1600&auto=format&fit=crop');
+        }
+        .slide-2 {
+            background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600&auto=format&fit=crop');
+        }
+        .slide-3 {
+            background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop');
+        }
+        .slide-4 {
+            background-image: url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1600&auto=format&fit=crop');
+        }
+
+        .slide::after {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.45);
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
         }
 
         .hero-content {
@@ -95,14 +154,37 @@
             max-width: 800px;
         }
 
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            border-radius: 30px;
+        }
+
         .hero h1 {
             color: #ffffff;
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 12px;
             line-height: 1.1;
+        }
+
+        .hero-sub {
+            color: #dddddd;
+            font-size: 1.1rem;
+            font-style: italic;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
         }
 
         .btn-primary {
@@ -123,12 +205,67 @@
             transform: translateY(-2px);
         }
 
+        /* Slider Controls */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border: none;
+            font-size: 1.8rem;
+            padding: 12px 18px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            transition: background 0.3s;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: #000;
+        }
+
+        .prev-slide { left: 20px; }
+        .next-slide { right: 20px; }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .dot.active {
+            background: #ffffff;
+            transform: scale(1.2);
+        }
+
         /* Intro / Brand Section */
         .intro-section {
-            padding: 100px 20px;
+            padding: 90px 20px;
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+        }
+
+        .brand-card-logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 24px;
+            filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.08));
         }
 
         .section-tag {
@@ -137,22 +274,31 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--text-muted);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .intro-section h2 {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 24px;
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
+        }
+
+        .slogan-highlight {
+            font-style: italic;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
         }
 
         .intro-section p {
             font-size: 1.05rem;
             color: var(--text-muted);
             line-height: 1.8;
-            margin-bottom: 40px;
+            margin-bottom: 36px;
         }
 
         .btn-dark {
@@ -236,10 +382,14 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 20px;
+                padding: 16px 20px;
             }
             .nav-links {
                 display: none;
+            }
+            .slider-arrow {
+                padding: 8px 14px;
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -248,25 +398,80 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <a href="#" class="logo">RUSH COLLECTIONS0</a>
+        <a href="#" class="brand-container">
+            <img src="Gemini_Generated_Image_cq4dsecq4dsecq4d.png" alt="RUSH COLLECTIONS0 Logo" class="brand-logo-img">
+            <div class="brand-text">
+                <span class="logo-title">RUSH COLLECTIONS0</span>
+                <span class="logo-slogan">Wear the Rush.</span>
+            </div>
+        </a>
         <div class="nav-links">
             <a href="https://wa.me/254116239991" target="_blank">WhatsApp</a>
             <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank">Instagram</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>UNISEX VINTAGE & STREETWEAR DROPS</h1>
-            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">View Latest Drops</a>
+    <!-- Hero Image Slider -->
+    <section class="hero-slider">
+        <!-- Slide 1 -->
+        <div class="slide slide-1 active">
+            <div class="hero-content">
+                <span class="hero-badge">RUSH COLLECTIONS0</span>
+                <h1>UNISEX VINTAGE & STREETWEAR</h1>
+                <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
+                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">View Latest Drops</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide slide-2">
+            <div class="hero-content">
+                <span class="hero-badge">RUSH COLLECTIONS0</span>
+                <h1>RAW THRIFT & OVERSIZED FITS</h1>
+                <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
+                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Shop The Vibe</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide slide-3">
+            <div class="hero-content">
+                <span class="hero-badge">RUSH COLLECTIONS0</span>
+                <h1>RETRO GRAPHIC TEES & HOODIES</h1>
+                <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
+                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Explore Catalog</a>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide slide-4">
+            <div class="hero-content">
+                <span class="hero-badge">RUSH COLLECTIONS0</span>
+                <h1>EXCLUSIVE 1-OF-1 DROPS</h1>
+                <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
+                <a href="https://wa.me/254116239991" class="btn-primary" target="_blank">Claim Your Piece</a>
+            </div>
+        </div>
+
+        <!-- Arrows -->
+        <button class="slider-arrow prev-slide">&#10094;</button>
+        <button class="slider-arrow next-slide">&#10095;</button>
+
+        <!-- Dots -->
+        <div class="slider-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
         </div>
     </section>
 
     <!-- Intro Section -->
     <section class="intro-section">
+        <img src="Gemini_Generated_Image_cq4dsecq4dsecq4d.png" alt="RUSH COLLECTIONS0 Official Logo" class="brand-card-logo">
         <div class="section-tag">WHO WE ARE</div>
-        <h2>Hi, there.<br>We're RUSH COLLECTIONS0.</h2>
+        <h2>RUSH COLLECTIONS0</h2>
+        <div class="slogan-highlight">"Wear the Rush."</div>
         <p>
             We curate timeless thrift, vintage graphic tees, oversized fits, and authentic streetwear designed for everyone. No matter your age, style, or vibe—our handpicked drops bring raw street aesthetic straight to your collection.
         </p>
@@ -288,8 +493,67 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 RUSH COLLECTIONS0 &bull; Wear The Rush</p>
+        <p>&copy; 2026 RUSH COLLECTIONS0 &bull; Wear the Rush.</p>
     </footer>
 
+    <!-- Slider JavaScript -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.prev-slide');
+        const nextBtn = document.querySelector('.next-slide');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            
+            if (index >= slides.length) currentSlide = 0;
+            else if (index < 0) currentSlide = slides.length - 1;
+            else currentSlide = index;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 4500);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                resetAutoSlide();
+            });
+        });
+
+        startAutoSlide();
+    </script>
 </body>
 </html>
