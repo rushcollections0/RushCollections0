@@ -94,13 +94,13 @@
             color: var(--text-muted);
         }
 
-        /* Hero Slider */
+        /* Hero Slider with Background Images */
         .hero-slider {
             position: relative;
             height: 80vh;
             min-height: 500px;
             overflow: hidden;
-            background: #0b0b0b;
+            background: #000000;
             color: #ffffff;
         }
 
@@ -117,16 +117,43 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        /* Slider Background Images */
+        .slide-1 {
+            background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1600&q=80');
+        }
+        .slide-2 {
+            background-image: url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1600&q=80');
+        }
+        .slide-3 {
+            background-image: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1600&q=80');
+        }
+        .slide-4 {
+            background-image: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1600&q=80');
         }
 
         .slide.active {
             opacity: 1;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             max-width: 800px;
             display: flex;
             flex-direction: column;
@@ -137,7 +164,7 @@
             max-width: 90px;
             height: auto;
             margin-bottom: 20px;
-            filter: invert(1);
+            filter: brightness(0) invert(1);
         }
 
         .hero h1 {
@@ -151,7 +178,7 @@
         }
 
         .hero-sub {
-            color: #aaaaaa;
+            color: #e5e5e5;
             font-size: 1.1rem;
             font-style: italic;
             letter-spacing: 2px;
@@ -182,9 +209,9 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.4);
             color: #ffffff;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             font-size: 1.8rem;
             padding: 12px 18px;
             cursor: pointer;
@@ -192,7 +219,7 @@
         }
 
         .slider-arrow:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .prev-slide { left: 20px; }
@@ -212,7 +239,7 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.4);
             cursor: pointer;
             transition: background 0.3s, transform 0.2s;
         }
@@ -367,7 +394,7 @@
     <!-- Navigation Bar -->
     <nav>
         <a href="#" class="brand-container">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAFBJREFUeF7t0cENgCAQQFEWwAo6WpQG1tC0tJNhwPsg8u9M8t9nAKh6fT+v0+v1uP1eEACgep0FAPgAANCvAwAAmk4AALQfAADof4cDAKAvDkYh9sL2AAAAAElFTkSuQmCC" alt="RUSH COLLECTIONS0 Logo" class="brand-logo-img">
+            <img src="./logo.png" alt="RUSH COLLECTIONS0 Logo" class="brand-logo-img">
             <div class="brand-text">
                 <span class="logo-title">RUSH COLLECTIONS0</span>
                 <span class="logo-slogan">Wear the Rush.</span>
@@ -384,7 +411,7 @@
         <!-- Slide 1 -->
         <div class="slide slide-1 active">
             <div class="hero-content">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAFBJREFUeF7t0cENgCAQQFEWwAo6WpQG1tC0tJNhwPsg8u9M8t9nAKh6fT+v0+v1uP1eEACgep0FAPgAANCvAwAAmk4AALQfAADof4cDAKAvDkYh9sL2AAAAAElFTkSuQmCC" alt="Logo" class="hero-logo-img">
+                <img src="./logo.png" alt="Logo" class="hero-logo-img">
                 <h1>UNISEX VINTAGE & STREETWEAR</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
                 <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">View Latest Drops</a>
@@ -394,7 +421,7 @@
         <!-- Slide 2 -->
         <div class="slide slide-2">
             <div class="hero-content">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAFBJREFUeF7t0cENgCAQQFEWwAo6WpQG1tC0tJNhwPsg8u9M8t9nAKh6fT+v0+v1uP1eEACgep0FAPgAANCvAwAAmk4AALQfAADof4cDAKAvDkYh9sL2AAAAAElFTkSuQmCC" alt="Logo" class="hero-logo-img">
+                <img src="./logo.png" alt="Logo" class="hero-logo-img">
                 <h1>RAW THRIFT & OVERSIZED FITS</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
                 <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Shop The Vibe</a>
@@ -404,7 +431,7 @@
         <!-- Slide 3 -->
         <div class="slide slide-3">
             <div class="hero-content">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAFBJREFUeF7t0cENgCAQQFEWwAo6WpQG1tC0tJNhwPsg8u9M8t9nAKh6fT+v0+v1uP1eEACgep0FAPgAANCvAwAAmk4AALQfAADof4cDAKAvDkYh9sL2AAAAAElFTkSuQmCC" alt="Logo" class="hero-logo-img">
+                <img src="./logo.png" alt="Logo" class="hero-logo-img">
                 <h1>RETRO GRAPHIC TEES & HOODIES</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
                 <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Explore Catalog</a>
@@ -414,7 +441,7 @@
         <!-- Slide 4 -->
         <div class="slide slide-4">
             <div class="hero-content">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAFBJREFUeF7t0cENgCAQQFEWwAo6WpQG1tC0tJNhwPsg8u9M8t9nAKh6fT+v0+v1uP1eEACgep0FAPgAANCvAwAAmk4AALQfAADof4cDAKAvDkYh9sL2AAAAAElFTkSuQmCC" alt="Logo" class="hero-logo-img">
+                <img src="./logo.png" alt="Logo" class="hero-logo-img">
                 <h1>EXCLUSIVE 1-OF-1 DROPS</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
                 <a href="https://wa.me/254116239991" class="btn-primary" target="_blank">Claim Your Piece</a>
@@ -436,7 +463,7 @@
 
     <!-- Intro Section -->
     <section class="intro-section">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAFBJREFUeF7t0cENgCAQQFEWwAo6WpQG1tC0tJNhwPsg8u9M8t9nAKh6fT+v0+v1uP1eEACgep0FAPgAANCvAwAAmk4AALQfAADof4cDAKAvDkYh9sL2AAAAAElFTkSuQmCC" alt="RUSH COLLECTIONS0 Official Logo" class="brand-card-logo">
+        <img src="./logo.png" alt="RUSH COLLECTIONS0 Official Logo" class="brand-card-logo">
         <div class="section-tag">WHO WE ARE</div>
         <h2>RUSH COLLECTIONS0</h2>
         <div class="slogan-highlight">"Wear the Rush."</div>
