@@ -188,7 +188,7 @@
             padding-bottom: 12px;
         }
 
-        /* Bag (Cart) Trigger Button */
+        /* Bag Trigger Button */
         .bag-btn {
             background: #111111;
             color: var(--brand-green);
@@ -731,7 +731,7 @@
             color: var(--brand-green);
         }
 
-        /* Customer Reviews Section */
+        /* Customer Reviews & Live Submission */
         .reviews-section {
             background-color: var(--brand-green-light);
             border-top: 1px solid var(--border-color);
@@ -739,9 +739,90 @@
             padding: 80px 20px;
         }
 
+        .review-actions {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btn-write-review {
+            background: #111111;
+            color: var(--brand-green);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn-write-review:hover {
+            transform: scale(1.05);
+        }
+
+        /* Review Submission Form Box */
+        .review-form-box {
+            display: none;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 28px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        .review-form-box h3 {
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background: var(--brand-green-light);
+            outline: none;
+        }
+
+        .btn-submit-review {
+            width: 100%;
+            background: var(--whatsapp-green);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-weight: 800;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
         .reviews-grid {
             max-width: 1000px;
-            margin: 30px auto 0 auto;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
@@ -1199,12 +1280,45 @@
         </div>
     </section>
 
-    <!-- Customer Reviews Section -->
+    <!-- Customer Reviews & Submission Section -->
     <section class="reviews-section" id="reviews">
         <h2 class="section-title">Customer Reviews</h2>
         <p class="section-sub">What our streetwear community says about our pieces & delivery</p>
 
-        <div class="reviews-grid">
+        <!-- Write a Review Button -->
+        <div class="review-actions">
+            <button class="btn-write-review" onclick="toggleReviewForm()">✍️ Write A Review</button>
+        </div>
+
+        <!-- Review Submission Form -->
+        <div class="review-form-box" id="review-form-box">
+            <h3>Leave Your Review</h3>
+            <form id="review-form" onsubmit="handleReviewSubmit(event)">
+                <div class="form-group">
+                    <label for="rev-name">Your Name</label>
+                    <input type="text" id="rev-name" placeholder="e.g. Emmanuel B." required>
+                </div>
+                <div class="form-group">
+                    <label for="rev-location">Location / City</label>
+                    <input type="text" id="rev-location" placeholder="e.g. Nairobi, Karatina, Mombasa" required>
+                </div>
+                <div class="form-group">
+                    <label for="rev-stars">Rating</label>
+                    <select id="rev-stars">
+                        <option value="★★★★★">★★★★★ (5/5 Stars)</option>
+                        <option value="★★★★☆">★★★★☆ (4/5 Stars)</option>
+                        <option value="★★★☆☆">★★★☆☆ (3/5 Stars)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rev-text">Your Feedback / Review</label>
+                    <textarea id="rev-text" rows="3" placeholder="Tell us about the fabric quality, fit, or delivery speed..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit-review">Submit & Post Review</button>
+            </form>
+        </div>
+
+        <div class="reviews-grid" id="reviews-grid">
             <div class="review-card">
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"The oversized washed tee fit exactly as shown on the IG reel! Fabric weight is legit vintage heavy cotton. Delivery to Eldoret took less than 24 hours via Easy Coach."</p>
@@ -1418,6 +1532,38 @@
                 message += `%0A${index + 1}. ${item.title}`;
             });
             window.open(`https://wa.me/254116239991?text=${message}`, '_blank');
+        }
+
+        // Live Review Submission Handler
+        function toggleReviewForm() {
+            const formBox = document.getElementById('review-form-box');
+            formBox.style.display = formBox.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('rev-name').value;
+            const location = document.getElementById('rev-location').value;
+            const stars = document.getElementById('rev-stars').value;
+            const text = document.getElementById('rev-text').value;
+
+            // Create new review HTML element
+            const reviewCard = document.createElement('div');
+            reviewCard.className = 'review-card';
+            reviewCard.innerHTML = `
+                <div class="stars">${stars}</div>
+                <p class="review-text">"${text}"</p>
+                <div class="reviewer-name">&mdash; ${name} (${location})</div>
+            `;
+
+            // Prepend new review to the top of the reviews grid
+            const reviewsGrid = document.getElementById('reviews-grid');
+            reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
+
+            // Reset form and close
+            document.getElementById('review-form').reset();
+            toggleReviewForm();
+            alert("Thank you! Your review has been submitted and posted to the site.");
         }
 
         // Live Countdown Timer Script (Target: 3 Days from now)
