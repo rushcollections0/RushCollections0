@@ -23,13 +23,17 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--brand-green);
             color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* Announcement Bar */
+        /* Announcement & Live Drop Countdown Bar */
         .announcement-bar {
             background-color: #111111;
             color: var(--brand-green);
@@ -39,6 +43,20 @@
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-timer {
+            background: rgba(209, 237, 228, 0.2);
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            letter-spacing: 2px;
+            color: #ffffff;
         }
 
         /* Navigation */
@@ -90,17 +108,23 @@
             letter-spacing: 1px;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.82rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.2s;
@@ -108,6 +132,221 @@
 
         .nav-links a:hover {
             color: var(--text-muted);
+        }
+
+        /* Hamburger Menu Icon */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 102;
+        }
+
+        .hamburger-btn span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile Drawer Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: var(--brand-green-light);
+            border-left: 1px solid var(--border-color);
+            z-index: 101;
+            padding: 90px 30px 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            transition: right 0.3s ease-in-out;
+        }
+
+        .mobile-menu.open {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        /* Bag (Cart) Trigger Button */
+        .bag-btn {
+            background: #111111;
+            color: var(--brand-green);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .bag-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .bag-count {
+            background: var(--brand-green);
+            color: #111111;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 900;
+        }
+
+        /* Shopping Bag Side Drawer */
+        .bag-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 360px;
+            max-width: 90%;
+            height: 100vh;
+            background: #ffffff;
+            z-index: 1000;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+            transition: right 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bag-drawer.open {
+            right: 0;
+        }
+
+        .bag-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--brand-green-light);
+        }
+
+        .bag-header h3 {
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .close-bag-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .bag-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .bag-item-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 14px;
+        }
+
+        .bag-item-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .bag-item-details h4 {
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .bag-item-details p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .remove-item-btn {
+            background: transparent;
+            border: none;
+            color: #cc0000;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .bag-footer {
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            background: var(--brand-green-light);
+        }
+
+        .btn-checkout-whatsapp {
+            display: block;
+            width: 100%;
+            background: var(--whatsapp-green);
+            color: #ffffff;
+            text-align: center;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .drawer-overlay.active {
+            display: block;
         }
 
         /* Hero Slider */
@@ -262,7 +501,7 @@
             transform: scale(1.3);
         }
 
-        /* How To Order & Delivery Logistics */
+        /* How To Order & Logistics */
         .how-to-order {
             background-color: var(--brand-green-light);
             border-bottom: 1px solid var(--border-color);
@@ -448,124 +687,131 @@
             font-size: 0.75rem;
             color: #777777;
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             display: block;
         }
 
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
         .btn-dark {
-            display: inline-block;
             background-color: #111111;
             color: #ffffff;
-            padding: 12px 28px;
-            font-size: 0.82rem;
+            padding: 10px 18px;
+            font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-decoration: none;
             border-radius: 4px;
             transition: background 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
-        .btn-dark:hover { 
-            background-color: var(--whatsapp-green); 
-            color: #ffffff; 
+        .btn-add-bag {
+            background-color: var(--brand-green-dark);
+            color: var(--text-dark);
+            padding: 10px 18px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
         }
 
-        /* Fits In Motion Section */
-        .fits-motion {
+        .btn-add-bag:hover {
+            background-color: #111111;
+            color: var(--brand-green);
+        }
+
+        /* Customer Reviews Section */
+        .reviews-section {
             background-color: var(--brand-green-light);
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
             padding: 80px 20px;
-            text-align: center;
         }
 
-        .video-grid {
+        .reviews-grid {
             max-width: 1000px;
             margin: 30px auto 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
-        .video-card {
-            position: relative;
-            background: #111111;
+        .review-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .stars {
+            color: #ffb400;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .reviewer-name {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        /* Sizing Guide Section */
+        .sizing-section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: #ffffff;
             border-radius: 8px;
             overflow: hidden;
-            height: 320px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
         }
 
-        .video-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.85;
-            transition: transform 0.3s;
-        }
-
-        .video-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .play-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(37, 211, 102, 0.9);
-            color: #ffffff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .video-caption {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            right: 12px;
-            color: #ffffff;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: left;
-        }
-
-        /* Details Callout Box */
-        .details-box {
-            max-width: 900px;
-            margin: 60px auto 0 auto;
-            padding: 28px;
-            border: 2px dashed var(--border-color);
-            border-radius: 8px;
+        .size-table th, .size-table td {
+            padding: 14px;
+            border: 1px solid var(--border-color);
+            font-size: 0.85rem;
             text-align: center;
-            background-color: var(--brand-green-light);
         }
 
-        .details-box h4 {
-            font-size: 0.95rem;
+        .size-table th {
+            background: #111111;
+            color: var(--brand-green);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
-            font-weight: 800;
-        }
-
-        .details-box p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
         }
 
         /* Intro Section */
         .intro-section {
-            padding: 100px 20px;
+            padding: 90px 20px;
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
@@ -672,7 +918,7 @@
             font-size: 0.88rem;
             text-decoration: none;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            z-index: 999;
+            z-index: 99;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -693,18 +939,19 @@
             color: var(--brand-green);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 868px) {
             nav { padding: 14px 20px; }
-            .nav-links { gap: 12px; }
-            .nav-links a { font-size: 0.75rem; }
+            .nav-links { display: none; }
+            .hamburger-btn { display: flex; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Delivery & Coming Soon Banner -->
+    <!-- Delivery & Live Drop Countdown Bar -->
     <div class="announcement-bar">
-        🔥 LAUNCHING SOON &bull; OFFICIAL DROPS & NATIONWIDE KENYA DELIVERY 🇰🇪
+        <span>🔥 NEXT CATALOGUE DROP GOES LIVE IN:</span>
+        <div class="countdown-timer" id="countdown">02d 14h 35m 10s</div>
     </div>
 
     <!-- Nav -->
@@ -716,12 +963,55 @@
                 <span class="logo-slogan">Wear the Rush.</span>
             </div>
         </a>
-        <div class="nav-links">
-            <a href="https://wa.me/254116239991" target="_blank">WhatsApp</a>
-            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank">Instagram</a>
-            <a href="https://x.com/weartherush" target="_blank">X</a>
+
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#drops">Latest Drops</a>
+                <a href="#how-to-order">How To Order</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#sizing">Sizing Guide</a>
+            </div>
+
+            <!-- Your Bag Trigger Button -->
+            <button class="bag-btn" onclick="toggleBag()">
+                🛍️ BAG <span class="bag-count" id="bag-count">0</span>
+            </button>
+
+            <!-- 3 Horizontal Lines Hamburger Button -->
+            <button class="hamburger-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Slide Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#drops" onclick="toggleMobileMenu()">⚡ Latest Drops</a>
+        <a href="#how-to-order" onclick="toggleMobileMenu()">📦 How To Order</a>
+        <a href="#reviews" onclick="toggleMobileMenu()">⭐ Customer Reviews</a>
+        <a href="#sizing" onclick="toggleMobileMenu()">📏 Sizing & Measurements</a>
+        <a href="https://wa.me/254116239991" target="_blank">💬 Connect on WhatsApp</a>
+        <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank">📸 Instagram</a>
+    </div>
+
+    <!-- Shopping Bag Side Drawer -->
+    <div class="drawer-overlay" id="drawer-overlay" onclick="toggleBag()"></div>
+    <div class="bag-drawer" id="bag-drawer">
+        <div class="bag-header">
+            <h3>Your Shopping Bag</h3>
+            <button class="close-bag-btn" onclick="toggleBag()">&times;</button>
+        </div>
+        <div class="bag-items" id="bag-items">
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 40px;">Your bag is currently empty.</p>
+        </div>
+        <div class="bag-footer">
+            <button class="btn-checkout-whatsapp" onclick="checkoutBagWhatsApp()">
+                💬 Checkout Bag on WhatsApp
+            </button>
+        </div>
+    </div>
 
     <!-- Hero Slider -->
     <section class="hero-slider">
@@ -732,7 +1022,7 @@
                 </div>
                 <h1>UNISEX VINTAGE & STREETWEAR</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
-                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Follow For Drop Alerts</a>
+                <a href="#drops" class="btn-primary">Explore Drops</a>
             </div>
         </div>
 
@@ -754,7 +1044,7 @@
                 </div>
                 <h1>RETRO GRAPHIC TEES & HOODIES</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
-                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Preview Catalog</a>
+                <a href="#drops" class="btn-primary">Preview Catalog</a>
             </div>
         </div>
 
@@ -765,7 +1055,7 @@
                 </div>
                 <h1>EXCLUSIVE 1-OF-1 DROPS</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
-                <a href="https://wa.me/254116239991" class="btn-primary" target="_blank">Get Notified First</a>
+                <a href="https://wa.me/254116239991" class="btn-primary" target="_blank">Get Drop Alerts</a>
             </div>
         </div>
 
@@ -781,7 +1071,7 @@
     </section>
 
     <!-- How To Order & Payment Logistics Section -->
-    <section class="how-to-order">
+    <section class="how-to-order" id="how-to-order">
         <h2 class="section-title">How Ordering Works</h2>
         <p class="section-sub">Simple 3-step process to claim your fits when drops go live</p>
         
@@ -794,7 +1084,7 @@
             <div class="step-card">
                 <div class="step-num">02</div>
                 <h3>WHATSAPP US</h3>
-                <p>Click "Inquire on WhatsApp" or send a screenshot of the 1-of-1 piece you want.</p>
+                <p>Click "Inquire" or add items to Your Bag and send us a direct message on WhatsApp.</p>
             </div>
             <div class="step-card">
                 <div class="step-num">03</div>
@@ -805,14 +1095,14 @@
 
         <div class="logistics-bar">
             <h4>💳 M-PESA & NATIONWIDE LOGISTICS 🚚</h4>
-            <p>Direct M-Pesa Till payment upon order confirmation. Fast courier & parcel dispatch via Easy Coach, Fargo Courier, Wells Fargo, or Matatu Sacco stage pick-ups right to your city/town.</p>
+            <p>Direct M-Pesa payment upon order confirmation. Fast courier & parcel dispatch via Easy Coach, Fargo Courier, Wells Fargo, or Matatu Sacco stage pick-ups right to your city/town.</p>
         </div>
     </section>
 
     <!-- Product Showcase -->
-    <section class="products-section">
-        <h2 class="section-title">Upcoming Catalogue Preview</h2>
-        <p class="section-sub">Sneak peek of handpicked 1-of-1 vintage & oversized fits launching soon</p>
+    <section class="products-section" id="drops">
+        <h2 class="section-title">Latest Catalogue Drops</h2>
+        <p class="section-sub">Handpicked 1-of-1 vintage & oversized fits</p>
 
         <!-- Filter Category Tabs -->
         <div class="category-tabs">
@@ -829,8 +1119,11 @@
                 <div class="product-info">
                     <h3>Vintage 90s NASCAR Racing Tee</h3>
                     <p>Authentic Thrift Selection</p>
-                    <span class="care-tag">🧼 Cold wash inside-out to preserve graphic</span>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Vintage%2090s%20NASCAR%20Racing%20Tee!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
+                    <span class="care-tag">🧼 Cold wash inside-out</span>
+                    <div class="btn-group">
+                        <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Vintage%2090s%20NASCAR%20Racing%20Tee!" class="btn-dark" target="_blank">Inquire</a>
+                        <button class="btn-add-bag" onclick="addToBag('Vintage 90s NASCAR Racing Tee', 'https://i.pinimg.com/1200x/43/a6/9a/43a69ab351bc5eb3456351d69ab3c3dc.jpg')">+ Bag</button>
+                    </div>
                 </div>
             </div>
 
@@ -841,7 +1134,10 @@
                     <h3>Varsity Retro Heavyweight Hoodie</h3>
                     <p>Heavyweight Fit</p>
                     <span class="care-tag">🧼 Hang dry to retain fleece shape</span>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Varsity%20Retro%20Heavyweight%20Hoodie!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
+                    <div class="btn-group">
+                        <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Varsity%20Retro%20Heavyweight%20Hoodie!" class="btn-dark" target="_blank">Inquire</a>
+                        <button class="btn-add-bag" onclick="addToBag('Varsity Retro Heavyweight Hoodie', 'https://i.pinimg.com/736x/f1/20/34/f1203467aeef76210ebc6ecd6a647d49.jpg')">+ Bag</button>
+                    </div>
                 </div>
             </div>
 
@@ -852,7 +1148,10 @@
                     <h3>Tactical Utility Baggy Cargos</h3>
                     <p>Unisex Style</p>
                     <span class="care-tag">🧼 Machine wash cold</span>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Tactical%20Utility%20Baggy%20Cargos!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
+                    <div class="btn-group">
+                        <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Tactical%20Utility%20Baggy%20Cargos!" class="btn-dark" target="_blank">Inquire</a>
+                        <button class="btn-add-bag" onclick="addToBag('Tactical Utility Baggy Cargos', 'https://i.pinimg.com/736x/66/b8/1d/66b81d4b00d5a9795624960b9fcceeae.jpg')">+ Bag</button>
+                    </div>
                 </div>
             </div>
 
@@ -863,7 +1162,10 @@
                     <h3>Oversized Washed Acid Graphic Tee</h3>
                     <p>Authentic Thrift Selection</p>
                     <span class="care-tag">🧼 Cold wash inside-out</span>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Oversized%20Washed%20Acid%20Graphic%20Tee!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
+                    <div class="btn-group">
+                        <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Oversized%20Washed%20Acid%20Graphic%20Tee!" class="btn-dark" target="_blank">Inquire</a>
+                        <button class="btn-add-bag" onclick="addToBag('Oversized Washed Acid Graphic Tee', 'https://i.pinimg.com/736x/61/97/53/619753434fd155f9341b403e05dfc264.jpg')">+ Bag</button>
+                    </div>
                 </div>
             </div>
 
@@ -873,8 +1175,11 @@
                 <div class="product-info">
                     <h3>Retro Denim Trucker Vintage Jacket</h3>
                     <p>Heavyweight Fit</p>
-                    <span class="care-tag">🧼 Dry clean / spot clean recommended</span>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Retro%20Denim%20Trucker%20Vintage%20Jacket!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
+                    <span class="care-tag">🧼 Spot clean recommended</span>
+                    <div class="btn-group">
+                        <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Retro%20Denim%20Trucker%20Vintage%20Jacket!" class="btn-dark" target="_blank">Inquire</a>
+                        <button class="btn-add-bag" onclick="addToBag('Retro Denim Trucker Vintage Jacket', 'https://i.pinimg.com/736x/d7/b6/c2/d7b6c24c4d64dd5d27243c6093f9fd87.jpg')">+ Bag</button>
+                    </div>
                 </div>
             </div>
 
@@ -885,40 +1190,80 @@
                     <h3>Heavyweight Fleece Sweatpants</h3>
                     <p>Unisex Style</p>
                     <span class="care-tag">🧼 Machine wash gentle</span>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Heavyweight%20Fleece%20Sweatpants!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
+                    <div class="btn-group">
+                        <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Heavyweight%20Fleece%20Sweatpants!" class="btn-dark" target="_blank">Inquire</a>
+                        <button class="btn-add-bag" onclick="addToBag('Heavyweight Fleece Sweatpants', 'https://i.pinimg.com/736x/31/a2/24/31a224b7c8eec8715bcd07ceac441fa6.jpg')">+ Bag</button>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Sizing Note -->
-        <div class="details-box">
-            <h4>📏 Sizing & Vintage Item Specs</h4>
-            <p>Every piece is a unique 1-of-1 thrift/vintage drop in standard unisex sizing (S, M, L, XL). Exact chest pit-to-pit measurements and extra close-up photos available on request via WhatsApp!</p>
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <h2 class="section-title">Customer Reviews</h2>
+        <p class="section-sub">What our streetwear community says about our pieces & delivery</p>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"The oversized washed tee fit exactly as shown on the IG reel! Fabric weight is legit vintage heavy cotton. Delivery to Eldoret took less than 24 hours via Easy Coach."</p>
+                <div class="reviewer-name">&mdash; Kelvin M. (Eldoret)</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Cleanest thrift hoodie I’ve ordered in Kenya. The fleece inner lining is so thick and structured. Premium 1-of-1 piece!"</p>
+                <div class="reviewer-name">&mdash; Brian K. (Nairobi)</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Fast WhatsApp responses and seamless M-Pesa payment. The tactical cargo pants stacked perfectly over my Jordans!"</p>
+                <div class="reviewer-name">&mdash; Steve O. (Mombasa)</div>
+            </div>
         </div>
     </section>
 
-    <!-- Fits In Motion Section -->
-    <section class="fits-motion">
-        <h2 class="section-title">Fits In Motion</h2>
-        <p class="section-sub">Follow our Instagram Reels & TikTok previews to see fit, drape, and weight in action</p>
+    <!-- Sizing & Measurements Guide Section -->
+    <section class="sizing-section" id="sizing">
+        <h2 class="section-title">Sizing & Measurements Guide</h2>
+        <p class="section-sub">Standard unisex fit specs for vintage tees, hoodies, & bottom drops</p>
 
-        <div class="video-grid">
-            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank" class="video-card" style="text-decoration:none;">
-                <img src="https://i.pinimg.com/1200x/43/a6/9a/43a69ab351bc5eb3456351d69ab3c3dc.jpg" alt="Vintage Tee Reel Preview">
-                <div class="play-overlay">▶</div>
-                <div class="video-caption">Oversized Tee Fit Check</div>
-            </a>
-            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank" class="video-card" style="text-decoration:none;">
-                <img src="https://i.pinimg.com/736x/f1/20/34/f1203467aeef76210ebc6ecd6a647d49.jpg" alt="Heavyweight Hoodie Reel Preview">
-                <div class="play-overlay">▶</div>
-                <div class="video-caption">Heavy Hoodie Unboxing</div>
-            </a>
-            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank" class="video-card" style="text-decoration:none;">
-                <img src="https://i.pinimg.com/736x/66/b8/1d/66b81d4b00d5a9795624960b9fcceeae.jpg" alt="Cargo Pants Styling Video">
-                <div class="play-overlay">▶</div>
-                <div class="video-caption">Cargo Stacking Video</div>
-            </a>
-        </div>
+        <table class="size-table">
+            <thead>
+                <tr>
+                    <th>Tag Size</th>
+                    <th>Chest (Pit-to-Pit)</th>
+                    <th>Tee / Hoodie Length</th>
+                    <th>Waist (Bottoms)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>SMALL (S)</strong></td>
+                    <td>19" - 20" inches</td>
+                    <td>27" inches</td>
+                    <td>28" - 30" inches</td>
+                </tr>
+                <tr>
+                    <td><strong>MEDIUM (M)</strong></td>
+                    <td>21" - 22" inches</td>
+                    <td>28" inches</td>
+                    <td>31" - 33" inches</td>
+                </tr>
+                <tr>
+                    <td><strong>LARGE (L)</strong></td>
+                    <td>23" - 24" inches</td>
+                    <td>29" inches</td>
+                    <td>34" - 36" inches</td>
+                </tr>
+                <tr>
+                    <td><strong>EXTRA LARGE (XL)</strong></td>
+                    <td>25" - 26" inches</td>
+                    <td>30" inches</td>
+                    <td>37" - 40" inches</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 
     <!-- Intro Section -->
@@ -1009,6 +1354,86 @@
                 }
             });
         }
+
+        // Mobile Hamburger Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+        }
+
+        // Shopping Bag Cart Script
+        let bag = [];
+
+        function toggleBag() {
+            const drawer = document.getElementById('bag-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function addToBag(title, imgSrc) {
+            bag.push({ title, imgSrc });
+            updateBagUI();
+            toggleBag();
+        }
+
+        function removeFromBag(index) {
+            bag.splice(index, 1);
+            updateBagUI();
+        }
+
+        function updateBagUI() {
+            const bagCount = document.getElementById('bag-count');
+            const bagItemsContainer = document.getElementById('bag-items');
+            bagCount.innerText = bag.length;
+
+            if (bag.length === 0) {
+                bagItemsContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 40px;">Your bag is currently empty.</p>';
+                return;
+            }
+
+            bagItemsContainer.innerHTML = '';
+            bag.forEach((item, index) => {
+                const itemHTML = `
+                    <div class="bag-item-card">
+                        <img src="${item.imgSrc}" alt="${item.title}">
+                        <div class="bag-item-details">
+                            <h4>${item.title}</h4>
+                            <p>1-of-1 Vintage Piece</p>
+                            <button class="remove-item-btn" onclick="removeFromBag(${index})">Remove</button>
+                        </div>
+                    </div>
+                `;
+                bagItemsContainer.innerHTML += itemHTML;
+            });
+        }
+
+        function checkoutBagWhatsApp() {
+            if (bag.length === 0) {
+                alert("Your shopping bag is empty! Add items first.");
+                return;
+            }
+            let message = "Hi RUSH COLLECTIONS0, I'd like to inquire about/order these pieces in my Bag:%0A";
+            bag.forEach((item, index) => {
+                message += `%0A${index + 1}. ${item.title}`;
+            });
+            window.open(`https://wa.me/254116239991?text=${message}`, '_blank');
+        }
+
+        // Live Countdown Timer Script (Target: 3 Days from now)
+        const targetDate = new Date().getTime() + (3 * 24 * 60 * 60 * 1000);
+        setInterval(() => {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = 
+                `${days}d ${hours < 10 ? '0' : ''}${hours}h ${minutes < 10 ? '0' : ''}${minutes}m ${seconds < 10 ? '0' : ''}${seconds}s`;
+        }, 1000);
     </script>
 </body>
 </html>
