@@ -328,6 +328,7 @@
         }
 
         .product-card {
+            position: relative;
             border: 1px solid var(--border-color);
             border-radius: 4px;
             overflow: hidden;
@@ -337,6 +338,21 @@
 
         .product-card:hover {
             transform: translateY(-4px);
+        }
+
+        .stock-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #000000;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            z-index: 5;
         }
 
         .product-card img {
@@ -498,6 +514,30 @@
             border: none;
         }
 
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--whatsapp-green);
+            color: #ffffff;
+            border-radius: 50px;
+            padding: 12px 22px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
         footer {
             padding: 40px 20px;
             text-align: center;
@@ -508,8 +548,9 @@
         }
 
         @media (max-width: 768px) {
-            nav { padding: 16px 20px; }
-            .nav-links { display: none; }
+            nav { padding: 14px 20px; }
+            .nav-links { gap: 12px; }
+            .nav-links a { font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -532,7 +573,7 @@
         <div class="nav-links">
             <a href="https://wa.me/254116239991" target="_blank">WhatsApp</a>
             <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank">Instagram</a>
-            <a href="https://x.com/weartherush" target="_blank">X (Twitter)</a>
+            <a href="https://x.com/weartherush" target="_blank">X</a>
         </div>
     </nav>
 
@@ -624,27 +665,30 @@
 
         <div class="product-grid">
             <div class="product-card">
+                <span class="stock-badge">ONLY 1 LEFT</span>
                 <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80" alt="Vintage Oversized Tee">
                 <div class="product-info">
                     <h3>Vintage Oversized Tee</h3>
                     <p>Authentic Thrift Selection</p>
-                    <a href="https://wa.me/254116239991" class="btn-dark" target="_blank">Order on WhatsApp</a>
+                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Vintage%20Oversized%20Tee!" class="btn-dark" target="_blank">Order on WhatsApp</a>
                 </div>
             </div>
             <div class="product-card">
+                <span class="stock-badge">ONLY 1 LEFT</span>
                 <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=800&q=80" alt="Retro Graphic Hoodie">
                 <div class="product-info">
                     <h3>Retro Graphic Hoodie</h3>
                     <p>Heavyweight Fit</p>
-                    <a href="https://wa.me/254116239991" class="btn-dark" target="_blank">Order on WhatsApp</a>
+                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Retro%20Graphic%20Hoodie!" class="btn-dark" target="_blank">Order on WhatsApp</a>
                 </div>
             </div>
             <div class="product-card">
+                <span class="stock-badge">ONLY 1 LEFT</span>
                 <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" alt="Denim & Streetwear Fits">
                 <div class="product-info">
                     <h3>Streetwear Cargo & Fits</h3>
                     <p>Unisex Style</p>
-                    <a href="https://wa.me/254116239991" class="btn-dark" target="_blank">Order on WhatsApp</a>
+                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Streetwear%20Cargos!" class="btn-dark" target="_blank">Order on WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -677,6 +721,11 @@
             <a href="https://x.com/weartherush" class="btn-social btn-x-official" target="_blank">Follow on X (@weartherush)</a>
         </div>
     </section>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://wa.me/254116239991" class="whatsapp-float" target="_blank">
+        💬 Order on WhatsApp
+    </a>
 
     <footer>
         <p>&copy; 2026 RUSH COLLECTIONS0 &bull; Wear the Rush.</p>
