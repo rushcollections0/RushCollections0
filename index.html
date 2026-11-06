@@ -1534,7 +1534,7 @@
             window.open(`https://wa.me/254116239991?text=${message}`, '_blank');
         }
 
-        // Live Review Submission Handler
+        // Live Review Submission Handler with WhatsApp Approval Flow
         function toggleReviewForm() {
             const formBox = document.getElementById('review-form-box');
             formBox.style.display = formBox.style.display === 'block' ? 'none' : 'block';
@@ -1547,7 +1547,7 @@
             const stars = document.getElementById('rev-stars').value;
             const text = document.getElementById('rev-text').value;
 
-            // Create new review HTML element
+            // Show instant preview on their screen
             const reviewCard = document.createElement('div');
             reviewCard.className = 'review-card';
             reviewCard.innerHTML = `
@@ -1556,14 +1556,15 @@
                 <div class="reviewer-name">&mdash; ${name} (${location})</div>
             `;
 
-            // Prepend new review to the top of the reviews grid
             const reviewsGrid = document.getElementById('reviews-grid');
             reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
 
-            // Reset form and close
+            // Send review copy to your WhatsApp for permanent verification
+            const waMessage = `Hi RUSH COLLECTIONS0, I just submitted a website review!%0A%0AName: ${name}%0ALocation: ${location}%0ARating: ${stars}%0AReview: "${text}"`;
+            window.open(`https://wa.me/254116239991?text=${waMessage}`, '_blank');
+
             document.getElementById('review-form').reset();
             toggleReviewForm();
-            alert("Thank you! Your review has been submitted and posted to the site.");
         }
 
         // Live Countdown Timer Script (Target: 3 Days from now)
