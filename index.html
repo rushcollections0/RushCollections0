@@ -34,7 +34,7 @@
             background-color: #111111;
             color: var(--brand-green);
             text-align: center;
-            padding: 9px 16px;
+            padding: 10px 16px;
             font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 1.5px;
@@ -262,7 +262,7 @@
             transform: scale(1.3);
         }
 
-        /* How To Order */
+        /* How To Order & Delivery Logistics */
         .how-to-order {
             background-color: var(--brand-green-light);
             border-bottom: 1px solid var(--border-color);
@@ -288,7 +288,7 @@
 
         .order-steps {
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 0 auto 40px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px;
@@ -323,6 +323,58 @@
             color: var(--text-muted);
         }
 
+        .logistics-bar {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #111111;
+            color: var(--brand-green);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .logistics-bar h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+
+        .logistics-bar p {
+            font-size: 0.88rem;
+            color: #dddddd;
+            line-height: 1.6;
+        }
+
+        /* Category Filter Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 10px 22px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-dark);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: #111111;
+            color: var(--brand-green);
+            border-color: #111111;
+        }
+
         /* Product Showcase */
         .products-section {
             padding: 90px 20px;
@@ -351,16 +403,16 @@
             box-shadow: 0 12px 30px rgba(0,0,0,0.08);
         }
 
-        .stock-badge {
+        .condition-badge {
             position: absolute;
             top: 14px;
             left: 14px;
             background: #111111;
             color: var(--brand-green);
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             font-weight: 800;
-            letter-spacing: 1.5px;
-            padding: 5px 12px;
+            letter-spacing: 1px;
+            padding: 5px 10px;
             text-transform: uppercase;
             border-radius: 4px;
             z-index: 5;
@@ -389,7 +441,15 @@
         .product-info p {
             color: var(--text-muted);
             font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .care-tag {
+            font-size: 0.75rem;
+            color: #777777;
+            font-style: italic;
             margin-bottom: 20px;
+            display: block;
         }
 
         .btn-dark {
@@ -409,6 +469,74 @@
         .btn-dark:hover { 
             background-color: var(--whatsapp-green); 
             color: #ffffff; 
+        }
+
+        /* Fits In Motion Section */
+        .fits-motion {
+            background-color: var(--brand-green-light);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .video-grid {
+            max-width: 1000px;
+            margin: 30px auto 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            position: relative;
+            background: #111111;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 320px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(37, 211, 102, 0.9);
+            color: #ffffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .video-caption {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
         }
 
         /* Details Callout Box */
@@ -441,9 +569,6 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            background: var(--brand-green-light);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
         }
 
         .brand-card-logo {
@@ -485,7 +610,7 @@
             margin-bottom: 36px;
         }
 
-        /* Social */
+        /* Social Hub */
         .social-strip {
             background-color: var(--brand-green);
             padding: 70px 20px;
@@ -577,9 +702,9 @@
 </head>
 <body>
 
-    <!-- Delivery Banner -->
+    <!-- Delivery & Coming Soon Banner -->
     <div class="announcement-bar">
-        ⚡ NATIONWIDE DELIVERY ACROSS KENYA 🇰🇪 &bull; FAST WHATSAPP CHECKOUT
+        🔥 LAUNCHING SOON &bull; OFFICIAL DROPS & NATIONWIDE KENYA DELIVERY 🇰🇪
     </div>
 
     <!-- Nav -->
@@ -607,7 +732,7 @@
                 </div>
                 <h1>UNISEX VINTAGE & STREETWEAR</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
-                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">View Latest Drops</a>
+                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Follow For Drop Alerts</a>
             </div>
         </div>
 
@@ -618,7 +743,7 @@
                 </div>
                 <h1>RAW THRIFT & OVERSIZED FITS</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
-                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Shop The Vibe</a>
+                <a href="https://wa.me/254116239991" class="btn-primary" target="_blank">Connect On WhatsApp</a>
             </div>
         </div>
 
@@ -629,7 +754,7 @@
                 </div>
                 <h1>RETRO GRAPHIC TEES & HOODIES</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
-                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Explore Catalog</a>
+                <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" class="btn-primary" target="_blank">Preview Catalog</a>
             </div>
         </div>
 
@@ -640,7 +765,7 @@
                 </div>
                 <h1>EXCLUSIVE 1-OF-1 DROPS</h1>
                 <p class="hero-sub">&mdash; Wear the Rush. &mdash;</p>
-                <a href="https://wa.me/254116239991" class="btn-primary" target="_blank">Claim Your Piece</a>
+                <a href="https://wa.me/254116239991" class="btn-primary" target="_blank">Get Notified First</a>
             </div>
         </div>
 
@@ -655,101 +780,144 @@
         </div>
     </section>
 
-    <!-- How To Order Section -->
+    <!-- How To Order & Payment Logistics Section -->
     <section class="how-to-order">
-        <h2 class="section-title">How To Order</h2>
-        <p class="section-sub">Simple 3-step process to claim your fits</p>
+        <h2 class="section-title">How Ordering Works</h2>
+        <p class="section-sub">Simple 3-step process to claim your fits when drops go live</p>
         
         <div class="order-steps">
             <div class="step-card">
                 <div class="step-num">01</div>
                 <h3>BROWSE DROPS</h3>
-                <p>Check out our latest streetwear pieces on the site or Instagram catalog.</p>
+                <p>Check out our latest vintage & streetwear catalog on the website or Instagram.</p>
             </div>
             <div class="step-card">
                 <div class="step-num">02</div>
                 <h3>WHATSAPP US</h3>
-                <p>Click "Order on WhatsApp" or send us a screenshot of the item you want.</p>
+                <p>Click "Inquire on WhatsApp" or send a screenshot of the 1-of-1 piece you want.</p>
             </div>
             <div class="step-card">
                 <div class="step-num">03</div>
-                <h3>FAST DELIVERY</h3>
-                <p>Confirm sizing, pay via M-Pesa, and receive parcel delivery anywhere in Kenya.</p>
+                <h3>PAY & RECEIVE</h3>
+                <p>Confirm measurements, complete M-Pesa payment, and get parcel delivery across Kenya.</p>
             </div>
+        </div>
+
+        <div class="logistics-bar">
+            <h4>💳 M-PESA & NATIONWIDE LOGISTICS 🚚</h4>
+            <p>Direct M-Pesa Till payment upon order confirmation. Fast courier & parcel dispatch via Easy Coach, Fargo Courier, Wells Fargo, or Matatu Sacco stage pick-ups right to your city/town.</p>
         </div>
     </section>
 
     <!-- Product Showcase -->
     <section class="products-section">
-        <h2 class="section-title">Latest Drops</h2>
-        <p class="section-sub">Handpicked 1-of-1 vintage & oversized pieces</p>
+        <h2 class="section-title">Upcoming Catalogue Preview</h2>
+        <p class="section-sub">Sneak peek of handpicked 1-of-1 vintage & oversized fits launching soon</p>
+
+        <!-- Filter Category Tabs -->
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="filterSelection('all')">ALL DROPS</button>
+            <button class="tab-btn" onclick="filterSelection('tees')">TEES</button>
+            <button class="tab-btn" onclick="filterSelection('hoodies')">HOODIES & JACKETS</button>
+            <button class="tab-btn" onclick="filterSelection('cargos')">CARGOS & BOTTOMS</button>
+        </div>
 
         <div class="product-grid">
-            <div class="product-card">
-                <span class="stock-badge">ONLY 1 LEFT</span>
+            <div class="product-card tees">
+                <span class="condition-badge">GRADE A+ VINTAGE</span>
                 <img src="https://i.pinimg.com/1200x/43/a6/9a/43a69ab351bc5eb3456351d69ab3c3dc.jpg" alt="Vintage 90s NASCAR Racing Tee">
                 <div class="product-info">
                     <h3>Vintage 90s NASCAR Racing Tee</h3>
                     <p>Authentic Thrift Selection</p>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Vintage%2090s%20NASCAR%20Racing%20Tee!" class="btn-dark" target="_blank">Order on WhatsApp</a>
+                    <span class="care-tag">🧼 Cold wash inside-out to preserve graphic</span>
+                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Vintage%2090s%20NASCAR%20Racing%20Tee!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
                 </div>
             </div>
 
-            <div class="product-card">
-                <span class="stock-badge">ONLY 1 LEFT</span>
+            <div class="product-card hoodies">
+                <span class="condition-badge">GRADE A+ HEAVYWEIGHT</span>
                 <img src="https://i.pinimg.com/736x/f1/20/34/f1203467aeef76210ebc6ecd6a647d49.jpg" alt="Varsity Retro Heavyweight Hoodie">
                 <div class="product-info">
                     <h3>Varsity Retro Heavyweight Hoodie</h3>
                     <p>Heavyweight Fit</p>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Varsity%20Retro%20Heavyweight%20Hoodie!" class="btn-dark" target="_blank">Order on WhatsApp</a>
+                    <span class="care-tag">🧼 Hang dry to retain fleece shape</span>
+                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Varsity%20Retro%20Heavyweight%20Hoodie!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
                 </div>
             </div>
 
-            <div class="product-card">
-                <span class="stock-badge">ONLY 1 LEFT</span>
+            <div class="product-card cargos">
+                <span class="condition-badge">GRADE A+ STREETWEAR</span>
                 <img src="https://i.pinimg.com/736x/66/b8/1d/66b81d4b00d5a9795624960b9fcceeae.jpg" alt="Tactical Utility Baggy Cargos">
                 <div class="product-info">
                     <h3>Tactical Utility Baggy Cargos</h3>
                     <p>Unisex Style</p>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Tactical%20Utility%20Baggy%20Cargos!" class="btn-dark" target="_blank">Order on WhatsApp</a>
+                    <span class="care-tag">🧼 Machine wash cold</span>
+                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Tactical%20Utility%20Baggy%20Cargos!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
                 </div>
             </div>
 
-            <div class="product-card">
-                <span class="stock-badge">ONLY 1 LEFT</span>
+            <div class="product-card tees">
+                <span class="condition-badge">GRADE A+ VINTAGE</span>
                 <img src="https://i.pinimg.com/736x/61/97/53/619753434fd155f9341b403e05dfc264.jpg" alt="Oversized Washed Acid Graphic Tee">
                 <div class="product-info">
                     <h3>Oversized Washed Acid Graphic Tee</h3>
                     <p>Authentic Thrift Selection</p>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Oversized%20Washed%20Acid%20Graphic%20Tee!" class="btn-dark" target="_blank">Order on WhatsApp</a>
+                    <span class="care-tag">🧼 Cold wash inside-out</span>
+                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Oversized%20Washed%20Acid%20Graphic%20Tee!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
                 </div>
             </div>
 
-            <div class="product-card">
-                <span class="stock-badge">ONLY 1 LEFT</span>
+            <div class="product-card hoodies">
+                <span class="condition-badge">GRADE A+ VINTAGE</span>
                 <img src="https://i.pinimg.com/736x/d7/b6/c2/d7b6c24c4d64dd5d27243c6093f9fd87.jpg" alt="Retro Denim Trucker Vintage Jacket">
                 <div class="product-info">
                     <h3>Retro Denim Trucker Vintage Jacket</h3>
                     <p>Heavyweight Fit</p>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Retro%20Denim%20Trucker%20Vintage%20Jacket!" class="btn-dark" target="_blank">Order on WhatsApp</a>
+                    <span class="care-tag">🧼 Dry clean / spot clean recommended</span>
+                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Retro%20Denim%20Trucker%20Vintage%20Jacket!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
                 </div>
             </div>
 
-            <div class="product-card">
-                <span class="stock-badge">ONLY 1 LEFT</span>
-                <img src="https://i.pinimg.com/736x/31/a2/24/31a224b7c8eec8715bcd07ceac441fa6.jpg" alt="Heavyweight Fleece Streetwear Sweatpants">
+            <div class="product-card cargos">
+                <span class="condition-badge">GRADE A+ FLEECE</span>
+                <img src="https://i.pinimg.com/736x/31/a2/24/31a224b7c8eec8715bcd07ceac441fa6.jpg" alt="Heavyweight Fleece Sweatpants">
                 <div class="product-info">
                     <h3>Heavyweight Fleece Sweatpants</h3>
                     <p>Unisex Style</p>
-                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Heavyweight%20Fleece%20Sweatpants!" class="btn-dark" target="_blank">Order on WhatsApp</a>
+                    <span class="care-tag">🧼 Machine wash gentle</span>
+                    <a href="https://wa.me/254116239991?text=Hi%20RUSH%20COLLECTIONS0,%20I'm%20interested%20in%20the%20Heavyweight%20Fleece%20Sweatpants!" class="btn-dark" target="_blank">Inquire on WhatsApp</a>
                 </div>
             </div>
         </div>
 
         <!-- Sizing Note -->
         <div class="details-box">
-            <h4>📏 Sizing & Item Condition</h4>
-            <p>Most pieces are unique 1-of-1 thrift/vintage drops. Standard unisex sizing (S, M, L, XL). Exact measurements and extra photos available on request via WhatsApp!</p>
+            <h4>📏 Sizing & Vintage Item Specs</h4>
+            <p>Every piece is a unique 1-of-1 thrift/vintage drop in standard unisex sizing (S, M, L, XL). Exact chest pit-to-pit measurements and extra close-up photos available on request via WhatsApp!</p>
+        </div>
+    </section>
+
+    <!-- Fits In Motion Section -->
+    <section class="fits-motion">
+        <h2 class="section-title">Fits In Motion</h2>
+        <p class="section-sub">Follow our Instagram Reels & TikTok previews to see fit, drape, and weight in action</p>
+
+        <div class="video-grid">
+            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank" class="video-card" style="text-decoration:none;">
+                <img src="https://i.pinimg.com/1200x/43/a6/9a/43a69ab351bc5eb3456351d69ab3c3dc.jpg" alt="Vintage Tee Reel Preview">
+                <div class="play-overlay">▶</div>
+                <div class="video-caption">Oversized Tee Fit Check</div>
+            </a>
+            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank" class="video-card" style="text-decoration:none;">
+                <img src="https://i.pinimg.com/736x/f1/20/34/f1203467aeef76210ebc6ecd6a647d49.jpg" alt="Heavyweight Hoodie Reel Preview">
+                <div class="play-overlay">▶</div>
+                <div class="video-caption">Heavy Hoodie Unboxing</div>
+            </a>
+            <a href="https://www.instagram.com/rush_collections0/?utm_source=ig_web_button_share_sheet" target="_blank" class="video-card" style="text-decoration:none;">
+                <img src="https://i.pinimg.com/736x/66/b8/1d/66b81d4b00d5a9795624960b9fcceeae.jpg" alt="Cargo Pants Styling Video">
+                <div class="play-overlay">▶</div>
+                <div class="video-caption">Cargo Stacking Video</div>
+            </a>
         </div>
     </section>
 
@@ -777,7 +945,7 @@
 
     <!-- Floating WhatsApp CTA -->
     <a href="https://wa.me/254116239991" class="whatsapp-float" target="_blank">
-        💬 Order on WhatsApp
+        💬 Connect on WhatsApp
     </a>
 
     <footer>
@@ -785,6 +953,7 @@
     </footer>
 
     <script>
+        // Hero Slider Script
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
         const prevBtn = document.querySelector('.prev-slide');
@@ -819,6 +988,27 @@
         });
 
         startAutoSlide();
+
+        // Category Filter Script
+        function filterSelection(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const btns = document.querySelectorAll('.tab-btn');
+
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.classList.contains(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
